@@ -20,9 +20,9 @@ public class NormalForm {
         boolean estaEn2FN = false;
 
         if (!attDeDependenciasEsIgualAAtributosUniverso(atributosDeDependencias, atributosUniverso)) {
-            System.out.println("Un atributo de las dependencias no esta contenido en los atributos definidos "
-                    + "esto quiere decir que ese atributo esta definido solo por el mismo, (y que hace parte de la llave)."
-                    + " por tanto no esta en 2FN");
+            //System.out.println("Un atributo de las dependencias no esta contenido en los atributos definidos "
+                    //+ "esto quiere decir que ese atributo esta definido solo por el mismo, (y que hace parte de la llave)."
+                    //+ " por tanto no esta en 2FN");
             return estaEn2FN;
         } else {
             estaEn2FN = true;
@@ -50,20 +50,20 @@ public class NormalForm {
 
                 estaEn2FN = longitudTodasLasLlavesEsUno(llavesCandidatas);
                 if (estaEn2FN) {
-                    System.out.println("La longitud de todas las llaves es uno, no hay subconjuntos de estas"
-                            + " por lo tanto esta en segunda forma normal " + estaEn2FN);
+                    //System.out.println("La longitud de todas las llaves es uno, no hay subconjuntos de estas"
+                            //+ " por lo tanto esta en segunda forma normal " + estaEn2FN);
                     return true;
                 }
 
                 if (!estaEn2FN) {
                     ArrayList<Atribute> conjuntoQ = obtenerConjuntoQ(atributosLlave, atributosUniverso);
-                    System.out.print("Q: ");
+                    //System.out.print("Q: ");
                     Util.imprimirListaAtt(conjuntoQ);
 
                     for (ArrayList<Atribute> llave : llavesCandidatas) {
                         //iteramos sobre los distintos subconjuntos de elementos que componen la llave
                         for (ICombinatoricsVector<String> subSet : Util.obtenerTodasLasCombinatorias(Util.obtenerArrayStringListDeListaDeAtributos(llave))) {
-                            System.out.println("ES: " + subSet);
+                            //System.out.println("ES: " + subSet);
                             //No tomamos en cuenta el subconjunto vacio y la llave misma, que sería el unico conjunto
                             //con el mismo tamaño que la llave
                             if (subSet.getSize() > 0 && subSet.getSize() < llave.size()) {
@@ -79,15 +79,15 @@ public class NormalForm {
                                         alAtributosCierreRecorridos, dependenciasFuncionales,
                                         alAtributosCierreCalculado, null, false);
 
-                                System.out.print("atributos");
+                                //System.out.print("atributos");
                                 Util.imprimirListaAtt(conjuntoQ);
-                                System.out.print("atributos cierre:");
+                                //System.out.print("atributos cierre:");
                                 Util.imprimirListaAtt(cierreAtributos);
 
                                 //verificamos si el cierre de atributos contiene elementos que la llave implica
                                 if (!laInterseccionEsVacia(cierreAtributos, conjuntoQ)) {
-                                    System.out.println("Se encuentra un conjunto de elementos que estan implicados por un subconjunto"
-                                            + " de la llave, por tanto no esta en 2FN." + estaEn2FN);
+                                    //System.out.println("Se encuentra un conjunto de elementos que estan implicados por un subconjunto"
+                                            //+ " de la llave, por tanto no esta en 2FN." + estaEn2FN);
                                     //si el subconjunto implica algún elemento el conjunto no se encuentra en segunda
                                     //forma normal y terminamos
                                     estaEn2FN = false;
@@ -97,10 +97,10 @@ public class NormalForm {
                         }
                     }
                     estaEn2FN = true;
-                    System.out.println("Cinco " + estaEn2FN);
+                    //System.out.println("Cinco " + estaEn2FN);
                 }
             } else {
-                //System.out.println("La llave contiene todos los elementos declarados, por tanto esta en segunda forma normal" + estaEn2FN);
+                ////System.out.println("La llave contiene todos los elementos declarados, por tanto esta en segunda forma normal" + estaEn2FN);
             }
         }
 

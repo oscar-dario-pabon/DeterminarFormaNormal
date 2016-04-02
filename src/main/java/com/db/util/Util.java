@@ -72,11 +72,11 @@ public class Util {
     }
 
     public static void imprimirListaAtt(ArrayList<Atribute> combinacionAtributos) {
-        System.out.print("Atributo: ");
+        //System.out.print("Atributo: ");
         for (Atribute atribute : combinacionAtributos) {
-            System.out.print("-" + atribute.getNombre());
+            //System.out.print("-" + atribute.getNombre());
         }
-        System.out.println();
+        //System.out.println();
     }
 
     public static ArrayList<String> obtenerArrayStringListDeListaDeAtributos(ArrayList<Atribute> attributeList) {
